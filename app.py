@@ -151,15 +151,16 @@ def event_handle(event):
         msg = str(event["message"]["text"])
         if (msg == "สวัสดี") :
             replyObj = TextSendMessage(text="ดีด้วย")
+            line_bot_api.reply_message(rtoken, replyObj)
         elif (msg == "เธอชื่ออะไร") :
             replyObj = TextSendMessage(text="เราชื่อ ป๋องแป๋ง")
+            line_bot_api.reply_message(rtoken, replyObj)
         elif (msg == "ทำไรอยู่") :
             replyObj = TextSendMessage(text="ฟังเพลงค่าา")
-        elif (msg == "อันยอง") :
-            replyObj = TextSendMessage(text="อันยองฮาเซโย")
+            line_bot_api.reply_message(rtoken, replyObj)
         else :
             replyObj = TextSendMessage(text=msg)
-        line_bot_api.reply_message(rtoken, replyObj)
+            line_bot_api.reply_message(rtoken, replyObj)
     elif msgType == "image":
         try:
             message_content = line_bot_api.get_message_content(event['message']['id'])
